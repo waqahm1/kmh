@@ -4,154 +4,251 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kent Muslim Hands</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
     <style>
       * {
-        -webkit-tap-highlight-color: transparent;
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
       }
 
       body {
-        margin: 0;
-        min-height: 100vh;
+        background-color: #f9f9f9;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: #004aad;
+        color: white;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 50px;
+        width: auto;
+        margin-right: 1rem;
+      }
+
+      .logo h1 {
+        font-size: 1.8rem;
+      }
+
+      nav {
         display: flex;
         justify-content: center;
-        align-items: center;
-        background: #fff;
-        font-family: Arial, sans-serif;
-        gap: 2rem;
+        flex-wrap: wrap;
+        background: #004aad;
+      }
+
+      nav a {
+        color: white;
         padding: 1rem;
-      }
-
-      .poster {
-        width: 300px;
-        height: 450px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        transition: transform 0.3s ease;
-        cursor: pointer;
-      }
-
-      .poster:hover {
-        transform: translateY(-10px);
-      }
-
-      .poster img {
-        width: 100%;
-        height: 100%;
-        object-fit: fill;
-      }
-
-      .poster-info {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
-        color: white;
-        padding: 20px;
-        transform: translateY(100%);
-        transition: transform 0.3s ease;
-      }
-
-      .poster:hover .poster-info {
-        transform: translateY(0);
-      }
-
-      .poster-title {
-        font-size: 1.5rem;
-        margin: 0 0 10px 0;
-      }
-
-      .poster-description {
-        font-size: 0.9rem;
-        margin: 0;
-        line-height: 1.4;
-      }
-
-      .apply-btn {
-        padding: 12px 24px;
-        background: #4285f4;
-        color: white;
         text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-        transition: background 0.3s ease;
-        display: block;
-        width: fit-content;
-        /* margin: 1rem auto; */
+        transition: background 0.3s;
+        flex: 1 1 auto;
+        text-align: center;
       }
 
-      .apply-btn:hover {
-        background: #357abd;
+      nav a:hover {
+        background-color: #003380;
       }
 
-      .poster-container {
+      .hero {
+        padding: 4rem 2rem;
+        text-align: center;
+        background-color: #e9fbe5;
+        /* background-color: #7ed956; */
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #004aad;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 3rem 2rem;
+      }
+
+      .section h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #004aad;
+        text-align: center;
+      }
+
+      .content {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
         gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      .content img {
+        width: 300px;
+        max-width: 100%;
+        border-radius: 10px;
+      }
+
+      .content-text {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .content-text p {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .donate-btn,
+      .read-more-btn {
+        background-color: #7ed957;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .donate-btn:hover,
+      .read-more-btn:hover {
+        background-color: #65b945;
+      }
+
+      footer {
+        background-color: #004aad;
+        color: white;
+        text-align: center;
+        padding: 2rem;
+        margin-top: 2rem;
       }
 
       @media (max-width: 768px) {
-        body {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p,
+        .section p {
+          font-size: 1rem;
+        }
+
+        .logo h1 {
+          font-size: 1.5rem;
+        }
+
+        .content {
           flex-direction: column;
-          padding: 1rem;
+          text-align: center;
         }
 
-        .poster {
+        .content-text {
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 1.5rem;
+        }
+
+        .donate-btn,
+        .read-more-btn {
           width: 100%;
-          max-width: 350px;
-          height: auto;
-          aspect-ratio: 2/3;
         }
 
-        .poster-info {
-          transform: translateY(0);
-          background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
-        }
-
-        .poster:hover {
-          transform: none;
-        }
-
-        .poster-title {
-          font-size: 1.25rem;
+        .logo img {
+          height: 40px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="poster-container">
-      <div class="poster">
-        <img src="images/sportsposter.JPG" alt="Poster 1" />
-        <div class="poster-info">
-          <h2 class="poster-title">Sports 4 Change</h2>
-        </div>
+    <header>
+      <div class="logo">
+        <img src="images/Kentmuslimhands.jpg" alt="Kent Muslim Hands" />
+        <h1>Kent Muslim Hands</h1>
       </div>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_PikpJ7cxrtqGz1n7w8MkTQsRHh-T2VWHUcWBLhc5YFjbEA/viewform?usp=preview" target="_blank" class="apply-btn">Apply for a Ramadan Food Package</a>
+    </header>
 
-      <div class="poster">
-        <img src="images/ramadanposter.JPG" alt="Poster 2" />
-        <div class="poster-info">
-          <h2 class="poster-title">Ramadan Packages</h2>
-        </div>
-      </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-      <div class="poster">
-        <img src="images/iftar.JPG" alt="Poster 3" />
-        <div class="poster-info">
-          <h2 class="poster-title">Iftar</h2>
-        </div>
-      </div>
+    <section class="section">
+      <h2>Welcome to Kent Muslim Hands</h2>
+    </section>
 
-      <div class="poster">
-        <img src="images/Ramadan.jpg" alt="Poster 4" />
-        <div class="poster-info">
-          <h2 class="poster-title">Ramadan</h2>
+    <section class="hero">
+      <h1>Support Our Mission</h1>
+      <p>Our mission is to build bridges across communities in Kent through meaningful acts of service and compassion.</p>
+    </section>
+
+    <section class="section">
+      <h2>About Us</h2>
+      <div class="content">
+        <img src="images/Kentmuslimhands.jpg" alt="About Kent Muslim Hands" />
+        <div class="content-text">
+          <p>
+            Kent Muslim Hands, founded in 2025 by the Gravesend Muslim community, is a grassroots charity dedicated to building bridges across Kent through service and compassion. While rooted in Islam, our mission embraces and supports people of all
+            backgrounds to foster a stronger, united society.
+          </p>
+          <a href="about.html" class="read-more-btn">Read More</a>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="section" style="background-color: #e9fbe5">
+      <h2>Our Projects</h2>
+      <div class="content">
+        <img src="images/eidmela.jpg" alt="Community Projects" />
+        <div class="content-text">
+          <p>From food distribution to community education, our projects are focused on uplifting the vulnerable and bridging cultural gaps.</p>
+          <a href="projects.html" class="read-more-btn">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Contact Us</h2>
+      <div class="content">
+        <img src="images/Kentmuslimhands.jpg" alt="Contact Kent Muslim Hands" />
+        <div class="content-text">
+          <p>We value communication and welcome any questions, feedback, or interest in collaboration. Reach out to us anytime.</p>
+          <a href="contact.html" class="read-more-btn">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Kent Muslim Hands. All rights reserved.</p>
+    </footer>
   </body>
 </html>
